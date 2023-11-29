@@ -30,7 +30,11 @@ const JobDetails = () => {
   });
 
   const [refreshing, setRefreshing] = useState(false);
-  const onRefresh = () => {};
+  const onRefresh = useCallback(()=>{
+    setRefreshing(true)
+    refetch()
+    setRefreshing(false)
+  })
   const tabs = ["About", "Qualifications", "Responsibilities"];
   const [activeTab, setActiveTab] = useState(tabs[0]);
 
